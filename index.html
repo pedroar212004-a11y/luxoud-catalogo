@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>LuxOud Perfumes</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+
+body{
+background:#0b0b0b;
+}
+
+.gold{
+color:#d4af37;
+}
+
+.gold-bg{
+background:#d4af37;
+}
+
+.modal{
+display:none;
+}
+
+.modal.active{
+display:flex;
+}
+
+</style>
+
+</head>
+
+<body class="text-white font-sans">
+
+<div class="max-w-6xl mx-auto p-6">
+
+<div class="text-center mb-10">
+
+<h1 class="text-4xl font-semibold gold">
+LuxOud
+</h1>
+
+<p class="tracking-widest text-gray-400 mb-6">
+PERFUMES ÁRABES
+</p>
+
+<input 
+id="searchInput"
+type="text"
+placeholder="Buscar perfume..."
+class="w-full md:w-96 bg-[#111] border border-[#333] rounded-lg p-3 text-white focus:outline-none focus:border-[#d4af37]"
+>
+
+</div>
+
+<div id="productGrid" class="grid grid-cols-2 md:grid-cols-3 gap-6"></div>
+
+</div>
+
+
+<div id="modal" class="modal fixed inset-0 bg-black bg-opacity-80 items-center justify-center p-4">
+
+<div class="bg-[#111] rounded-xl max-w-md w-full p-6 relative border border-[#d4af37]">
+
+<button onclick="closeModal()" class="absolute top-3 right-4 text-xl text-white">✕</button>
+
+<img id="modalImage" class="rounded-lg mb-4 w-full h-64 object-contain bg-white">
+
+<h2 id="modalName" class="text-2xl gold mb-1"></h2>
+
+<p id="modalPrice" class="text-lg mb-2 font-semibold"></p>
+
+<p id="modalDescription" class="text-gray-400 mb-4"></p>
+
+<a id="whatsappBtn"
+target="_blank"
+class="block text-center gold-bg hover:opacity-90 text-black font-bold py-3 rounded-lg">
+Pedir por WhatsApp
+</a>
+
+</div>
+
+</div>
+
+
+<script>
+
+const phoneNumber="51947701266";
+
+const productos=[
+
+{
+id:1,
+nombre:"Lattafa Fakhar Black",
+precio:"S/159.00",
+descripcion:"Perfume árabe elegante con notas frescas y amaderadas.",
+imagen:"imagenes/fakhar.jpg"
+},
+
+{
+id:2,
+nombre:"Club de Nuit Intense Man",
+precio:"S/189.00",
+descripcion:"Fragancia masculina intensa con notas cítricas, piña y madera.",
+imagen:"imagenes/clubdenuit.jpg"
+},
+
+{
+id:3,
+nombre:"Afnan 9PM",
+precio:"S/169.00",
+descripcion:"Perfume dulce y elegante con vainilla, manzana y ámbar.",
+imagen:"imagenes/afnan9pm.jpg"
+},
+
+{
+id:4,
+nombre:"Lattafa Khamrah",
+precio:"S/169.00",
+descripcion:"Fragancia cálida y dulce con notas de canela, vainilla y ámbar.",
+imagen:"imagenes/khamrah.jpg"
+}
+
+];
+
+
+const grid=document.getElementById("productGrid");
+const searchInput=document.getElementById("searchInput");
+
+function renderProducts(lista){
+
+grid.innerHTML="";
+
+lista.forEach(producto=>{
+
+const card=document.createElement("div");
+
+card.className="bg-[#111] rounded-xl overflow-hidden shadow-lg cursor-pointer hover:scale-105 transition border border-[#222]";
+
+card.innerHTML=`
+
+<img src="${producto.imagen}" class="w-full h-64 object-contain bg-white">
+
+<div class="p-4">
+
+<h3 class="font-semibold text-lg gold">${producto.nombre}</h3>
+
+<p class="mt-1 text-white font-bold">${producto.precio}</p>
+
+</div>
+
+`;
+
+card.onclick=()=>openModal(producto);
+
+grid.appendChild(card);
+
+});
+
+}
+
+renderProducts(productos);
+
+
+searchInput.addEventListener("input",()=>{
+
+const texto=searchInput.value.toLowerCase();
+
+const filtrados=productos.filter(p =>
+p.nombre.toLowerCase().includes(texto)
+);
+
+renderProducts(filtrados);
+
+});
+
+
+function openModal(producto){
+
+document.getElementById("modal").classList.add("active");
+
+modalImage.src=producto.imagen;
+modalName.innerText=producto.nombre;
+modalPrice.innerText=producto.precio;
+modalDescription.innerText=producto.descripcion;
+
+const mensaje=`Hola, quiero comprar el perfume ${producto.nombre} por ${producto.precio}. ¿Está disponible?`;
+
+whatsappBtn.href=`https://wa.me/${phoneNumber}?text=${encodeURIComponent(mensaje)}`;
+
+}
+
+function closeModal(){
+
+document.getElementById("modal").classList.remove("active");
+
+}
+
+</script>
+
+</body>
+</html>
