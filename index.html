@@ -31,6 +31,26 @@ display:none;
 display:flex;
 }
 
+  .whatsapp-float{
+  position: fixed;
+  width:60px;
+  height:60px;
+  bottom:20px;
+  right:20px;
+  z-index:100;
+  background:#25D366;
+  border-radius:50%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  box-shadow:0 5px 15px rgba(0,0,0,0.4);
+  transition:0.3s;
+}
+
+.whatsapp-float:hover{
+  transform: scale(1.1);
+}
+  
 </style>
 
 </head>
@@ -283,7 +303,10 @@ modalName.innerText=producto.nombre;
 modalPrice.innerText=producto.precio;
 modalDescription.innerText=producto.descripcion;
 
-const mensaje=`Hola, quiero comprar el perfume ${producto.nombre} por ${producto.precio}. ¿Está disponible?`;
+const mensaje=`Hola, quiero comprar este perfume:
+
+${producto.nombre}
+${producto.precio}`;
 
 whatsappBtn.href=`https://wa.me/${phoneNumber}?text=${encodeURIComponent(mensaje)}`;
 
@@ -296,6 +319,13 @@ document.getElementById("modal").classList.remove("active");
 }
 
 </script>
+<!-- BOTÓN WHATSAPP FLOTANTE -->
+<a href="https://wa.me/51947701266?text=Hola,%20¿Me%20podría%20brindar%20información%20sobre%20los%20perfumes%20árabes?"
+   class="whatsapp-float"
+   target="_blank">
 
+   <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" width="35">
+
+</a>
 </body>
 </html>
