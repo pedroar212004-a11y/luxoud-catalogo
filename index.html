@@ -61,6 +61,18 @@ display:flex;
   z-index:100;
 }
 
+/* AJUSTE PARA MÓVIL */
+@media (max-width: 768px){
+  .whatsapp-container{
+    right:10px;
+  }
+
+  .whatsapp-text{
+    font-size:12px;
+    padding:6px 10px;
+  }
+}
+
 /* TEXTO */
 .whatsapp-text{
   background:#111;
@@ -69,8 +81,7 @@ display:flex;
   border-radius:10px;
   font-size:14px;
   box-shadow:0 5px 15px rgba(0,0,0,0.4);
-
-  animation: fadeIn 1s ease;
+  white-space: nowrap;
 }
 
 /* BOTÓN */
@@ -376,7 +387,7 @@ document.getElementById("modal").classList.remove("active");
 <!-- BOTÓN WHATSAPP FLOTANTE -->
 <div class="whatsapp-container">
   
-  <span class="whatsapp-text">¿Necesitas ayuda?</span>
+  <span class="whatsapp-text hidden md:block">¿Necesitas ayuda?</span>
 
   <a href="https://wa.me/51947701266?text=Hola,%20¿Me%20podría%20brindar%20información%20sobre%20los%20perfumes%20árabes?"
      class="whatsapp-float"
