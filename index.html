@@ -338,10 +338,8 @@ modalName.innerText=producto.nombre;
 modalPrice.innerText=producto.precio;
 modalDescription.innerText=producto.descripcion;
 
-const mensaje=`Hola, quiero comprar este perfume:
-
-${producto.nombre}
-${producto.precio}`;
+const mensaje=`Hola, quiero comprar el perfume *${producto.nombre}* a *${producto.precio}*
+¿Está disponible?`;
 
 whatsappBtn.href=`https://wa.me/${phoneNumber}?text=${encodeURIComponent(mensaje)}`;
 
