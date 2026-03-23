@@ -50,6 +50,60 @@ display:flex;
 .whatsapp-float:hover{
   transform: scale(1.1);
 }
+  /* CONTENEDOR */
+.whatsapp-container{
+  position: fixed;
+  bottom:20px;
+  right:20px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  z-index:100;
+}
+
+/* TEXTO */
+.whatsapp-text{
+  background:#111;
+  color:white;
+  padding:8px 12px;
+  border-radius:10px;
+  font-size:14px;
+  box-shadow:0 5px 15px rgba(0,0,0,0.4);
+
+  animation: fadeIn 1s ease;
+}
+
+/* BOTÓN */
+.whatsapp-float{
+  width:60px;
+  height:60px;
+  background:#25D366;
+  border-radius:50%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  box-shadow:0 5px 15px rgba(0,0,0,0.4);
+
+  animation: pulse 2s infinite;
+  transition:0.3s;
+}
+
+.whatsapp-float:hover{
+  transform: scale(1.1);
+}
+
+/* ANIMACIÓN LATIDO */
+@keyframes pulse{
+  0%{ transform: scale(1); }
+  50%{ transform: scale(1.1); }
+  100%{ transform: scale(1); }
+}
+
+/* ENTRADA SUAVE */
+@keyframes fadeIn{
+  from{ opacity:0; transform:translateY(10px); }
+  to{ opacity:1; transform:translateY(0); }
+}
   
 </style>
 
@@ -320,12 +374,18 @@ document.getElementById("modal").classList.remove("active");
 
 </script>
 <!-- BOTÓN WHATSAPP FLOTANTE -->
-<a href="https://wa.me/51947701266?text=Hola,%20¿Me%20podría%20brindar%20información%20sobre%20los%20perfumes%20árabes?"
-   class="whatsapp-float"
-   target="_blank">
+<div class="whatsapp-container">
+  
+  <span class="whatsapp-text">¿Necesitas ayuda?</span>
 
-   <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" width="35">
+  <a href="https://wa.me/51947701266?text=Hola,%20¿Me%20podría%20brindar%20información%20sobre%20los%20perfumes%20árabes?"
+     class="whatsapp-float"
+     target="_blank">
 
-</a>
+     <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" width="30">
+
+  </a>
+
+</div>
 </body>
 </html>
