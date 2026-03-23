@@ -31,57 +31,13 @@ display:none;
 display:flex;
 }
 
-  .whatsapp-float{
-  position: fixed;
-  width:60px;
-  height:60px;
-  bottom:20px;
-  right:20px;
-  z-index:100;
-  background:#25D366;
-  border-radius:50%;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  box-shadow:0 5px 15px rgba(0,0,0,0.4);
-  transition:0.3s;
-}
-
-.whatsapp-float:hover{
-  transform: scale(1.1);
-}
-  /* CONTENEDOR */
-.whatsapp-container{
-  position: fixed;
-  bottom:20px;
-  right:20px;
-  display:flex;
-  align-items:center;
-  gap:10px;
-  z-index:100;
-}
-
-/* AJUSTE PARA MÓVIL */
-@media (max-width: 768px){
   .whatsapp-container{
-    right:10px;
-  }
-
-  .whatsapp-text{
-    font-size:12px;
-    padding:6px 10px;
-  }
-}
-
-/* TEXTO */
-.whatsapp-text{
-  background:#111;
-  color:white;
-  padding:8px 12px;
-  border-radius:10px;
-  font-size:14px;
-  box-shadow:0 5px 15px rgba(0,0,0,0.4);
-  white-space: nowrap;
+  position: fixed;
+  bottom:20px;
+  right:20px;
+  display:flex;
+  align-items:center;
+  z-index:100;
 }
 
 /* BOTÓN */
@@ -94,26 +50,34 @@ display:flex;
   justify-content:center;
   align-items:center;
   box-shadow:0 5px 15px rgba(0,0,0,0.4);
-
   animation: pulse 2s infinite;
-  transition:0.3s;
 }
 
-.whatsapp-float:hover{
-  transform: scale(1.1);
+/* TEXTO */
+.whatsapp-text{
+  margin-left:10px;
+  background:#111;
+  color:white;
+  padding:8px 12px;
+  border-radius:10px;
+  font-size:13px;
+  white-space: nowrap;
+  box-shadow:0 5px 15px rgba(0,0,0,0.4);
 }
 
-/* ANIMACIÓN LATIDO */
+/* ANIMACIÓN */
 @keyframes pulse{
   0%{ transform: scale(1); }
   50%{ transform: scale(1.1); }
   100%{ transform: scale(1); }
 }
 
-/* ENTRADA SUAVE */
-@keyframes fadeIn{
-  from{ opacity:0; transform:translateY(10px); }
-  to{ opacity:1; transform:translateY(0); }
+/* MÓVIL */
+@media (max-width: 768px){
+  .whatsapp-text{
+    font-size:12px;
+    padding:6px 10px;
+  }
 }
   
 </style>
@@ -386,8 +350,6 @@ document.getElementById("modal").classList.remove("active");
 </script>
 <!-- BOTÓN WHATSAPP FLOTANTE -->
 <div class="whatsapp-container">
-  
-  <span class="whatsapp-text hidden md:block">¿Necesitas ayuda?</span>
 
   <a href="https://wa.me/51947701266?text=Hola,%20¿Me%20podría%20brindar%20información%20sobre%20los%20perfumes%20árabes?"
      class="whatsapp-float"
@@ -396,6 +358,8 @@ document.getElementById("modal").classList.remove("active");
      <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" width="30">
 
   </a>
+
+  <span class="whatsapp-text">¿Necesitas ayuda?</span>
 
 </div>
 </body>
