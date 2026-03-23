@@ -333,6 +333,8 @@ function openModal(producto){
 
 document.getElementById("modal").classList.add("active");
 
+document.getElementById("whatsappFloat").style.display = "none";
+
 modalImage.src=producto.imagen;
 modalName.innerText=producto.nombre;
 modalPrice.innerText=producto.precio;
@@ -350,10 +352,28 @@ function closeModal(){
 document.getElementById("modal").classList.remove("active");
 
 }
+function closeModal(){
+  document.getElementById("modal").classList.remove("active");
+  document.getElementById("whatsappFloat").style.display = "block";
+}
 
+// 👇 AQUÍ VA LO NUEVO
+const noti = document.querySelector(".whatsapp-noti");
+
+function toggleNoti() {
+  noti.style.display = "block";
+
+  setTimeout(() => {
+    noti.style.display = "none";
+  }, 5000);
+}
+
+setInterval(toggleNoti, 15000);
+toggleNoti();
+  
 </script>
 <!-- BOTÓN WHATSAPP FLOTANTE -->
-<div class="whatsapp-container">
+<div class="whatsapp-container" id="whatsappFloat">
 
   <a href="https://wa.me/51947701266?text=Hola,%20¿Me%20podría%20brindar%20información%20sobre%20los%20perfumes%20árabes?"
      class="whatsapp-float"
