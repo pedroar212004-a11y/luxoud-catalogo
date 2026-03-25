@@ -85,14 +85,17 @@ display:flex;
     transform: translateY(0);
   }
 }
+  body.no-scroll{
+  overflow: hidden;
+}
   
 </style>
 
 </head>
 
-<body class="text-white font-sans">
+<body class="text-white font-sans no-scroll">
   <!-- 🔥 PORTADA PRINCIPAL -->
-<section style="
+<section id="portada" style="
 height: 100vh;
 background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)),
 url('portada.jpg') center/cover no-repeat;
@@ -101,37 +104,26 @@ align-items:center;
 justify-content:center;
 text-align:center;
 color:white;
+overflow:hidden;
 ">
 
-<div>
-
-<h1 style="
-font-size:48px;
-color:#d4af37;
-margin-bottom:20px;
-letter-spacing:2px;
-">
-Perfumes Árabes Exclusivos
-</h1>
-
-<p style="
+<a href="#"
+onclick="mostrarCatalogo()"
+style="
+background:#d4af37;
+color:black;
+padding:16px 40px;
+border-radius:30px;
+font-weight:bold;
+text-decoration:none;
 font-size:18px;
-margin-bottom:30px;
-color:#e5e5e5;
 ">
-Lujo que deja huella
-</p>
-
-<a href="#catalogo"
-style="background:#d4af37; color:black; padding:14px 35px; border-radius:30px; font-weight:bold; text-decoration:none;">
 Ver catálogo
 </a>
 
-</div>
-
 </section>
 
-<div id="catalogo" class="max-w-6xl mx-auto p-6">
+<div id="catalogo" class="max-w-6xl mx-auto p-6" style="display:none;">
 
 <div class="text-center mb-10">
 
@@ -409,10 +401,16 @@ function toggleNoti() {
 
 setInterval(toggleNoti, 15000);
 toggleNoti();
+  function mostrarCatalogo(){
+  document.getElementById("catalogo").style.display = "block";
+  document.getElementById("portada").style.display = "none";
+  document.getElementById("whatsappFloat").style.display = "block";
+  document.body.classList.remove("no-scroll");
+}
   
 </script>
 <!-- BOTÓN WHATSAPP FLOTANTE -->
-<div class="whatsapp-container" id="whatsappFloat">
+<div class="whatsapp-container" id="whatsappFloat" style="display:none;">
 
   <a href="https://wa.me/51947701266?text=Hola,%20¿Me%20podría%20brindar%20información%20sobre%20los%20perfumes%20árabes?"
      class="whatsapp-float"
