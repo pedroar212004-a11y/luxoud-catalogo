@@ -103,7 +103,8 @@ display:flex;
   left:0;
   width:100%;
   height:100%;
-  background: url('fondo-catalogo.jpg') center/cover no-repeat;
+  background: url('fondo-catalogo.jpg') center/contain no-repeat;
+  background-color:#0b0b0b;
   z-index:-1;
 }
 
@@ -163,7 +164,7 @@ overflow:hidden;
 <div id="catalogo" class="w-full min-h-screen p-6" style="
 display:none;
 ">
-<div class="text-center mb-10">
+<div class="text-center mb-10 max-w-3xl mx-auto">
 
 <div class="flex justify-center items-center py-8">
   <img 
@@ -177,12 +178,12 @@ display:none;
 id="searchInput"
 type="text"
 placeholder="Buscar perfume..."
-class="w-full md:w-96 bg-[#111] border border-[#333] rounded-lg p-3 text-white focus:outline-none focus:border-[#d4af37]"
+class="w-full md:w-[420px] bg-[#111] border border-[#333] rounded-xl p-4 text-white text-lg focus:outline-none focus:border-[#d4af37]"
 >
 
 </div>
 
-<div id="productGrid" class="grid grid-cols-2 md:grid-cols-4 gap-6">
+<div id="productGrid" class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
 
 </div>
 
@@ -358,8 +359,7 @@ lista.forEach(producto=>{
 
 const card=document.createElement("div");
 
-card.className="card-hover bg-white/90 backdrop-blur-sm rounded-xl overflow-hidden shadow-lg cursor-pointer transition border border-transparent hover:scale-105 hover:border-[#d4af37]";
-
+card.className="card-hover bg-[#111] rounded-xl overflow-hidden shadow-lg cursor-pointer transition border border-[#222] hover:scale-105 hover:border-[#d4af37]";
 card.innerHTML=`
 
 <img src="${producto.imagen}" class="w-full aspect-square object-contain bg-white">
