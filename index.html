@@ -104,7 +104,10 @@ display:flex;
   background: url('fondo-catalogo.jpg') center/cover no-repeat;
   z-index:-1;
 }
-
+a:hover{
+  transform: scale(1.05);
+  transition: 0.3s;
+}
 </style>
 
 </head>
@@ -114,8 +117,7 @@ display:flex;
   <!-- 🔥 PORTADA PRINCIPAL -->
 <section id="portada" style="
 height: 100vh;
-background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)),
-url('portada.jpg') center/cover no-repeat;
+background: url('portada.jpg') center/cover no-repeat;
 display:flex;
 align-items:center;
 justify-content:center;
@@ -124,36 +126,20 @@ color:white;
 overflow:hidden;
 ">
 
-<div>
-  <h1 style="
-  font-size:42px;
-  font-weight:bold;
-  margin-bottom:10px;
-  ">
-  Perfumes Árabes Premium
-  </h1>
-
-  <p style="
-  color:#d4af37;
-  margin-bottom:20px;
-  letter-spacing:1px;
-  ">
-  Alta duración • Calidad original • Estilo exclusivo
-  </p>
-
-  <a href="#"
-  onclick="mostrarCatalogo()"
-  style="
-  background:#d4af37;
-  color:black;
-  padding:16px 40px;
-  border-radius:30px;
-  font-weight:bold;
-  text-decoration:none;
-  font-size:18px;
-  ">
-  Ver catálogo
-  </a>
+<a href="#"
+onclick="mostrarCatalogo()"
+style="
+background:#d4af37;
+color:black;
+padding:18px 50px;
+border-radius:40px;
+font-weight:bold;
+text-decoration:none;
+font-size:20px;
+box-shadow:0 0 20px rgba(212,175,55,0.7);
+">
+Ver catálogo
+</a>
 </div>
 
 </section>
