@@ -88,7 +88,15 @@ display:flex;
   body.no-scroll{
   overflow: hidden;
 }
-  
+  #catalogo{
+  backdrop-filter: blur(3px);
+}
+  .card-hover:hover{
+  box-shadow:0 0 25px rgba(212,175,55,0.5);
+}
+  input::placeholder{
+  color:#aaa;
+}
 </style>
 
 </head>
@@ -107,24 +115,47 @@ color:white;
 overflow:hidden;
 ">
 
-<a href="#"
-onclick="mostrarCatalogo()"
-style="
-background:#d4af37;
-color:black;
-padding:16px 40px;
-border-radius:30px;
-font-weight:bold;
-text-decoration:none;
-font-size:18px;
-">
-Ver catálogo
-</a>
+<div>
+  <h1 style="
+  font-size:42px;
+  font-weight:bold;
+  margin-bottom:10px;
+  ">
+  Perfumes Árabes Premium
+  </h1>
+
+  <p style="
+  color:#d4af37;
+  margin-bottom:20px;
+  letter-spacing:1px;
+  ">
+  Alta duración • Calidad original • Estilo exclusivo
+  </p>
+
+  <a href="#"
+  onclick="mostrarCatalogo()"
+  style="
+  background:#d4af37;
+  color:black;
+  padding:16px 40px;
+  border-radius:30px;
+  font-weight:bold;
+  text-decoration:none;
+  font-size:18px;
+  ">
+  Ver catálogo
+  </a>
+</div>
 
 </section>
 
-<div id="catalogo" class="max-w-6xl mx-auto p-6" style="display:none;">
-
+<div id="catalogo" class="max-w-6xl mx-auto p-6" style="
+display:none;
+background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)),
+url('fondo-catalogo.jpg') center/cover no-repeat;
+background-attachment: fixed;
+border-radius:20px;
+">
 <div class="text-center mb-10">
 
 <div class="flex justify-center items-center py-8">
@@ -320,7 +351,7 @@ lista.forEach(producto=>{
 
 const card=document.createElement("div");
 
-card.className="bg-[#111] rounded-xl overflow-hidden shadow-lg cursor-pointer hover:scale-105 transition border border-[#222]";
+card.className="card-hover bg-[#111] rounded-xl overflow-hidden shadow-lg cursor-pointer transition border border-[#222] hover:scale-105 hover:border-[#d4af37]";
 
 card.innerHTML=`
 
