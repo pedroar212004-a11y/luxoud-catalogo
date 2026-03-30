@@ -107,13 +107,6 @@ display:flex;
   z-index:-1;
 }
 
-#fondo::after{
-  content:"";
-  position:absolute;
-  width:100%;
-  height:100%;
-  background: rgba(0,0,0,0.75);
-}
 </style>
 
 </head>
@@ -170,7 +163,7 @@ overflow:hidden;
 <div id="catalogo" class="w-full min-h-screen p-6" style="
 display:none;
 ">
-<div class="text-center mb-10 bg-black/60 p-4 rounded-xl">
+<div class="text-center mb-10">
 
 <div class="flex justify-center items-center py-8">
   <img 
@@ -189,7 +182,7 @@ class="w-full md:w-96 bg-[#111] border border-[#333] rounded-lg p-3 text-white f
 
 </div>
 
-<div id="productGrid" class="grid grid-cols-2 md:grid-cols-3 gap-6 bg-black/60 p-4 rounded-xl">
+<div id="productGrid" class="grid grid-cols-2 md:grid-cols-4 gap-6">
 
 </div>
 
@@ -365,11 +358,11 @@ lista.forEach(producto=>{
 
 const card=document.createElement("div");
 
-card.className="card-hover bg-[#111] rounded-xl overflow-hidden shadow-lg cursor-pointer transition border border-[#222] hover:scale-105 hover:border-[#d4af37]";
+card.className="card-hover bg-white/90 backdrop-blur-sm rounded-xl overflow-hidden shadow-lg cursor-pointer transition border border-transparent hover:scale-105 hover:border-[#d4af37]";
 
 card.innerHTML=`
 
-<img src="${producto.imagen}" class="w-full h-64 object-contain bg-white">
+<img src="${producto.imagen}" class="w-full aspect-square object-contain bg-white">
 
 <div class="p-4">
 
