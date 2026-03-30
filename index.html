@@ -88,9 +88,7 @@ display:flex;
   body.no-scroll{
   overflow: hidden;
 }
-  #catalogo{
-  backdrop-filter: blur(3px);
-}
+  
   .card-hover:hover{
   box-shadow:0 0 25px rgba(212,175,55,0.5);
 }
@@ -103,8 +101,7 @@ display:flex;
   left:0;
   width:100%;
   height:100%;
-  background: url('fondo-catalogo.jpg') center/contain no-repeat;
-  background-color:#0b0b0b;
+  background: url('fondo-catalogo.jpg') center/cover no-repeat;
   z-index:-1;
 }
 
@@ -183,7 +180,7 @@ class="w-full md:w-[420px] bg-[#111] border border-[#333] rounded-xl p-4 text-wh
 
 </div>
 
-<div id="productGrid" class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
+<div id="productGrid" class="grid grid-cols-2 md:grid-cols-3 gap-6">
 
 </div>
 
